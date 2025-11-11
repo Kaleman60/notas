@@ -42,3 +42,4 @@ const user = {
 
 console.log(user.peliculasFavoritas[0])
 console.log(user.direccion.calle)
+
