@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra Papel Tijeras</title>
+</head>
+<body>
+    
+    <p id="score">
+        <p>
+            <span id="jugador">?</span>
+            <span>VS</span>
+            <span id="enemigo">?</span>
+        </p>
+   </p>
+    <h2>Elige</h2>
+    <button onclick="jugar('piedra')">Piedra</button>
+    <button onclick="jugar('papel')">Papel</button>
+    <button onclick="jugar('tijera')">Tijera</button>
+        
+    <script>
+        const displayScore = document.querySelector("#score")
+        const eleccionJugador = document.querySelector("#jugador")
+        const eleccionEnemigo = document.querySelector("#enemigo")
+        const displayResultado = document.querySelector("#resultado")
+        let score = 0
+        displayScore.textContent = score
+
+        console.log(parseInt(Math.random()*100))
+        const elecciones = ["piedra", "papel", "tijera"]
+
+        function choose(array){
+            return array[parseInt(Math.random()*array.length)]
+        }
+
+
+        function empatar (){
+            displayResultado.textContent = "Empate!"
+        }
+
+
+         function ganar (){
+            displayResultado.textContent = "Empate!"
+        }
+
+
+         function perder (){
+            displayResultado.textContent = "Empate!"
+        }
+
+
+
+        function jugar (eleccion){
+            const eleccionEnemigo = choose(elecciones)
+            console.log("eleccion jugador: ", eleccion)
+            console.log("eleccion enemigo: ", eleccionEnemigo)
+
+            const piedraVSpapel = eleccion === "piedra" && eleccionEnemigo === "papel"
+
+            if (eleccion === eleccionEnemigo ) empatar ()
+            else if (piedraVSpapel) perder() 
+        }
+
+    </script>
+   
+</body>
+</html>
