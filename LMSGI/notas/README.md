@@ -179,3 +179,7 @@ Esto iniciará un servidor local donde podrás ver tu sitio en
 http://con el puerto que la terminal te indique
 
 
+## Despliegue a Neocities
+Para desplegar la pagina web en Neocities es primero crear una cuenta en neocieties.org y luego instalar la herramienta de neocities:
+
+y luego buscar la carpeta del proyecto en el ordenador y despues se va a la pagina de neocities y se envia la carpeta en la seccion de "Upload files"
