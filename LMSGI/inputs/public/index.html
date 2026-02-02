@@ -6,6 +6,62 @@
     <title>Document</title>
 </head>
 <body>
+
+    <form id  = formMovie>
+        <fieldset>
+            <legend>Crear pelicula</legend>
+            <label for="title">Titulo:</label>
+            <input type="text" name = "title" value ="Titulo de pelicula">
+            <br>
+            <input type="checkbox" name = "action" value="action" checked>
+            <label for="action">Action</label>
+            <input type="checkbox" name = "comedy" value="comedy">
+            <label for="comedy">Comedy</label>
+            <input type="checkbox" name = "drama" value="drama" checked>
+            <label for="drama">Drama</label>
+            <br>
+            <input type="submit" value="Crear Pelicula">
+
+        </fieldset>
+    </form>
+
+
+    <script>
+        const form = document.querySelector('#formMovie');
+        console.log(form);
+        form.addEventListener("submit", (event) => {
+            event.preventDefault()
+            const formdata = new FormData(form)
+            const title = formdata.get("title")
+            console.log(title)
+            const action = formdata.get("action")
+            const comedia = formdata.get("comedy")
+            const drama = formdata.get("drama")
+            let genres = ""
+            if (action) genres += "action"
+            if (comedia) genres += `|comedy`
+            if (drama) genres += `|drama`
+            const data = {
+                title,
+                genres
+            }
+            fetch("/test", {
+                method: "POST",
+                headers:{
+                    "Content-Type":"application/json"
+                },
+                body: JSON.stringify(data)
+
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+        })
+
+    </script>
+
+
+    
+
     <form method = "POST" action = "/test">
         <fieldset>
         <legend>Formulario de ejemplo</legend>
@@ -42,7 +98,18 @@
             <label for="queso">Queso</label>
 
         </fieldset>
-            
+           
+        <fieldset>
+            <legend>Radio Button</legend>
+            <input type="radio" name = "pokemon" value="squirtle" checked>
+            <label for="squirtle">Squirtle</label>
+            <br>
+            <input type="radio" name = "pokemon" value="charmander">
+            <label for="charmander">Charmander</label>
+            <br>
+            <input type="radio" name = "pokemon" value="bulbasaur">
+            <label for="bulbasaur">Bulbasaur</label>
+        </fieldset>
 
         <br>
         <input type="submit" value="Enviar">
