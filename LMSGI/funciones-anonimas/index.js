@@ -18,3 +18,5 @@ console.log(negativos)
 
 const mezcla = mezclas.filter(mezcla => typeof mezcla == "string")
 console.log(mezcla)
+
+
